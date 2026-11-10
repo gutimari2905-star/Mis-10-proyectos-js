@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio de Prácticas JS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <h1>Portafolio de Prácticas JS</h1>
+        <p>Estudiante</p>
+    </header>
+
+    <nav class="nav-menu">
+        <button class="tab-btn active" onclick="cambiarSeccion('sec-cronometro')">Cronómetro</button>
+        <button class="tab-btn" onclick="cambiarSeccion('sec-notas')">Bloc de Notas</button>
+        <button class="tab-btn" onclick="cambiarSeccion('sec-adivina')">Adivina el Número</button>
+        <button class="tab-btn" onclick="cambiarSeccion('sec-fondo')">Color Aleatorio</button>
+        <button class="tab-btn" onclick="cambiarSeccion('sec-caracteres')">Contador de Caracteres</button>
+        <button class="tab-btn" onclick="cambiarSeccion('sec-reloj')">Reloj Digital</button>
+        <button class="tab-btn" onclick="cambiarSeccion('sec-imc')">Calculadora IMC</button>
+        <button class="tab-btn" onclick="cambiarSeccion('sec-preguntas')">Trivia Rápida</button>
+        <button class="tab-btn" onclick="cambiarSeccion('sec-galeria')">Visor de Imágenes</button>
+        <button class="tab-btn" onclick="cambiarSeccion('sec-faq')">Acordeón FAQ</button>
+    </nav>
+
+    <main class="content-container">
+        <!-- Proyecto 1: Cronómetro -->
+        <section id="sec-cronometro" class="project-card active">
+            <h2>Cronómetro Activo</h2>
+            <div class="cronometro-display">00:00:00</div>
+            <div class="btn-group">
+                <button onclick="iniciarCronometro()">Iniciar</button>
+                <button onclick="pausarCronometro()">Pausar</button>
+                <button onclick="limpiarCronometro()">Reiniciar</button>
+            </div>
+        </section>
+
+        <!-- Proyecto 2: Bloc de Notas -->
+        <section id="sec-notas" class="project-card">
+            <h2>Bloc de Notas Rápido</h2>
+            <input type="text" id="input-nota" placeholder="Escribe una nota...">
+            <button onclick="guardarNotaLocal()">Guardar Nota</button>
+            <ul id="lista-notas"></ul>
+        </section>
+
+        <!-- Proyecto 3: Adivina el Número -->
+        <section id="sec-adivina" class="project-card">
+            <h2>Adivina el Número (1-50)</h2>
+            <p>Introduce un número para probar tu suerte:</p>
+            <input type="number" id="intento-usuario" min="1" max="50">
+            <button onclick="verificarIntento()">Probar</button>
+            <p id="mensaje-adivina" class="feedback-text"></p>
+        </section>
+
+        <!-- Proyecto 4: Fondo Dinámico -->
+        <section id="sec-fondo" class="project-card">
+            <h2>Generador de Color Hex</h2>
+            <div id="caja-color" class="color-box">#FFFFFF</div>
+            <button onclick="generarColorAleatorio()">Cambiar Color</button>
+        </section>
+
+        <!-- Proyecto 5: Contador de Caracteres -->
+        <section id="sec-caracteres" class="project-card">
+            <h2>Contador de Caracteres</h2>
+            <textarea id="texto-entrada" placeholder="Escribe algo por aquí..." oninput="contarLetras()"></textarea>
+            <p>Total de caracteres: <span id="contador-resultado">0</span></p>
+        </section>
+
+        <!-- Proyecto 6: Reloj Digital -->
+        <section id="sec-reloj" class="project-card">
+            <h2>Reloj en Tiempo Real</h2>
+            <div id="reloj-digital" class="clock-display">00:00:00</div>
+        </section>
+
+        <!-- Proyecto 7: Calculadora IMC -->
+        <section id="sec-imc" class="project-card">
+            <h2>Calculadora de IMC</h2>
+            <input type="number" id="peso-input" placeholder="Peso en kg">
+            <input type="number" id="altura-input" placeholder="Altura en metros (ej. 1.70)">
+            <button onclick="calcularIndiceMasa()">Calcular IMC</button>
+            <p id="resultado-imc"></p>
+        </section>
+
+        <!-- Proyecto 8: Trivia Rápida -->
+        <section id="sec-preguntas" class="project-card">
+            <h2>Trivia de Programación</h2>
+            <p>¿Qué etiqueta se usa para incluir JavaScript en HTML?</p>
+            <button onclick="evaluarTrivia(false)">&lt;scripting&gt;</button>
+            <button onclick="evaluarTrivia(true)">&lt;script&gt;</button>
+            <button onclick="evaluarTrivia(false)">&lt;js&gt;</button>
+            <p id="resultado-trivia"></p>
+        </section>
+
+        <!-- Proyecto 9: Visor de Imágenes Simple -->
+        <section id="sec-galeria" class="project-card">
+            <h2>Visor de Imágenes Intercambiables</h2>
+            <div class="image-preview" id="visor-img">Imagen 1</div>
+            <button onclick="cambiarImagen(1)">Ver Opción 1</button>
+            <button onclick="cambiarImagen(2)">Ver Opción 2</button>
+        </section>
+
+        <!-- Proyecto 10: Acordeón FAQ -->
+        <section id="sec-faq" class="project-card">
+            <h2>Preguntas Frecuentes</h2>
+            <div class="faq-item">
+                <button class="faq-question" onclick="alternarFaq(this)">¿Es este portafolio responsive?</button>
+                <div class="faq-answer"><p>Sí, se adapta perfectamente a dispositivos móviles y escritorios.</p></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>Desarrollado para la evaluación - 2026</p>
+        <a href="https://github.com" target="_blank">Ver Repositorio en GitHub</a>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
